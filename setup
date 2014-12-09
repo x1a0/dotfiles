@@ -2,5 +2,5 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-ln -sf "$DIR/gitconfig" "$HOME/.gitconfig"
-ln -sf "$DIR/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$DIR/gitconfig" "${ZDOTDIR:-$HOME}/.gitconfig"
+ln -sf "$DIR/tmux.conf" "${ZDOTDIR:-$HOME}/.tmux.conf"
