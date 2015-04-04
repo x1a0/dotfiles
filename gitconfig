@@ -17,6 +17,8 @@
   fp       = fetch -p
   pff      = pull --ff-only
 	bc       = !git branch --merged | grep -v master | xargs git branch -d
+  sshow    = "!f() { git stash show stash^{/$*} -p; }; f"
+  sapply   = "!f() { git stash apply stash^{/$*}; }; f"
 [color]
   branch = auto
   diff   = auto
