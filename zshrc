@@ -3,6 +3,7 @@ source ~/.zplug/init.zsh
 zplug "zplug/zplug"
 zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto $HOME/.zprezto"
 zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh"
+zplug "felixr/docker-zsh-completion"
 
 # install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
