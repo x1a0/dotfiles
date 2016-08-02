@@ -47,3 +47,6 @@ export PAGER='less'
 alias vim='nvim'
 
 bindkey "^R" history-incremental-pattern-search-backward
+
+export NVM_DIR="/Users/x1a0/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
