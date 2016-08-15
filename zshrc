@@ -37,6 +37,9 @@ zstyle ':prezto:module:prompt' theme 'coolblue'
 
 # /prezto config
 
+
+export LC_ALL='en_US.UTF-8'
+
 # source plugins and add commands to $PATH
 zplug load --verbose
 
