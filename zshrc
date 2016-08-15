@@ -51,7 +51,9 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 
-alias vim='nvim'
+if has nvim; then
+  alias vim='nvim'
+fi
 
 bindkey "^R" history-incremental-pattern-search-backward
 
