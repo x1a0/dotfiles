@@ -43,6 +43,10 @@ export LC_ALL='en_US.UTF-8'
 # source plugins and add commands to $PATH
 zplug load --verbose
 
+has() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
