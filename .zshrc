@@ -1,7 +1,7 @@
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug"
-zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto ${ZDOTDIR:-$HOME}/.zprezto"
+zplug "x1a0/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/x1a0/prezto ${ZDOTDIR:-$HOME}/.zprezto"
 zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh"
 zplug "felixr/docker-zsh-completion"
 
