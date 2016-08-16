@@ -1,7 +1,7 @@
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug"
-zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto $HOME/.zprezto"
+zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto ${ZDOTDIR:-$HOME}/.zprezto"
 zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh"
 zplug "felixr/docker-zsh-completion"
 
@@ -29,16 +29,20 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'fasd' \
   'prompt' \
-  'git'
+  'git' \
+  'tmux'
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
 zstyle ':prezto:module:prompt' theme 'coolblue'
 
+#zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+
 # /prezto config
 
 
 export LC_ALL='en_US.UTF-8'
+
 
 # source plugins and add commands to $PATH
 zplug load --verbose
