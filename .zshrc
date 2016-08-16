@@ -19,8 +19,8 @@ fi
 zstyle ':prezto:*:*' color 'yes'
 
 zstyle ':prezto:load' pmodule \
+  'tmux' \
   'environment' \
-  'terminal' \
   'editor' \
   'history' \
   'directory' \
@@ -29,14 +29,13 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'fasd' \
   'prompt' \
-  'git' \
-  'tmux'
+  'git'
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
 zstyle ':prezto:module:prompt' theme 'coolblue'
 
-#zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # /prezto config
 
