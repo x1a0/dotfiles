@@ -54,3 +54,7 @@ bindkey "^R" history-incremental-pattern-search-backward
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [[ $(uname) == 'Darwin' ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
