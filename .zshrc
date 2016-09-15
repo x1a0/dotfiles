@@ -52,6 +52,9 @@ fi
 
 bindkey "^R" history-incremental-pattern-search-backward
 
+# Meta-u to chdir to the parent directory
+bindkey -s '\eu' '^Ucd ..; ls^M'
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
