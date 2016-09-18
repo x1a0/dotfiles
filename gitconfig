@@ -16,7 +16,7 @@
   new      = !sh -c 'git log $1@{1}..$1@{0} "$@"'
   lg       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   fp       = fetch -p
-	bc       = !git branch --merged | grep -v master | xargs git branch -d
+  bc       = !git branch --merged | grep -v master | xargs git branch -d
   sshow    = "!f() { git stash show stash^{/$*} -p; }; f"
   sapply   = "!f() { git stash apply stash^{/$*}; }; f"
   fixup    = commit --amend -C HEAD
