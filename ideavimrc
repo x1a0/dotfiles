@@ -1,0 +1,11 @@
+set ignorecase
+set number
+set relativenumber
+
+imap jk <Esc>
+let mapleader=" "
+
+map <S-h> :action PreviousTab<CR>
+map <S-l> :action NextTab<CR>
+map <leader>gb :action Annotate<CR>
+map <leader>ff :action ReformatCode<CR>
