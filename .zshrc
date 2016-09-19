@@ -46,10 +46,6 @@ has() {
   command -v "$1" >/dev/null 2>&1
 }
 
-if has nvim; then
-  alias vim='nvim'
-fi
-
 bindkey "^R" history-incremental-pattern-search-backward
 
 # Meta-u to chdir to the parent directory
