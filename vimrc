@@ -6,6 +6,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 set tabstop=2
