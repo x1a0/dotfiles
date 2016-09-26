@@ -57,3 +57,5 @@ export NVM_DIR="$HOME/.nvm"
 if [[ $(uname) == 'Darwin' ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
+
+[ -s "./local.zshrc" ] && source ./local.zshrc
