@@ -39,23 +39,14 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # /prezto config
 
+
 # source plugins and add commands to $PATH
 zplug load --verbose
-
-has() {
-  command -v "$1" >/dev/null 2>&1
-}
 
 bindkey "^R" history-incremental-pattern-search-backward
 
 # Meta-u to chdir to the parent directory
 bindkey -s '\eu' '^Ucd ..; ls^M'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-if [[ $(uname) == 'Darwin' ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
-[ -s "./local.zshrc" ] && source ./local.zshrc
+LOCAL_ZSHRC="$HOME/.dotfiles/local.zshrc"
+[ -s "$LOCAL_ZSHRC" ] && source "$LOCAL_ZSHRC"
