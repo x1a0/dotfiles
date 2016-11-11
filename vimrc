@@ -76,3 +76,5 @@ endif
 
 " Remove trailing whitespace
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+nmap <Leader>j :%!python -m json.tool<CR>
