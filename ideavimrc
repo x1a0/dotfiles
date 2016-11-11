@@ -8,6 +8,7 @@ let mapleader=" "
 map <S-h> :action PreviousTab<CR>
 map <S-l> :action NextTab<CR>
 map <leader>si :action SelectIn<CR>
-map <leader>fm :action ReformatCode<CR>
 map <leader>gb :action Annotate<CR>
 map <leader>mr :action Maven.Reimport<CR>
+map <leader>rr :action RunClass<CR>
+map <leader>L :action MoveTabRight<CR>
