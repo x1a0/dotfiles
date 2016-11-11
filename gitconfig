@@ -20,6 +20,9 @@
   sshow    = "!f() { git stash show stash^{/$*} -p; }; f"
   sapply   = "!f() { git stash apply stash^{/$*}; }; f"
   fixup    = commit --amend -C HEAD
+  # Github
+  pr       = pull-request
+  is       = issue
 [color]
   branch = auto
   diff   = auto
