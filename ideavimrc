@@ -12,3 +12,4 @@ map <leader>gb :action Annotate<CR>
 map <leader>mr :action Maven.Reimport<CR>
 map <leader>rr :action RunClass<CR>
 map <leader>L :action MoveTabRight<CR>
+map <leader>mm :action HideAllWindows<CR>
