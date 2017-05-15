@@ -7,10 +7,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set backspace=indent,eol,start
 set expandtab
 set showcmd
@@ -20,6 +22,7 @@ set ignorecase
 set smartcase
 set ruler
 set background=dark
+set hidden
 
 inoremap jk <ESC>
 let mapleader=" "
@@ -78,3 +81,10 @@ endif
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 nmap <Leader>j :%!python -m json.tool<CR>
+
+" Racer
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let $RUST_SRC_PATH = "$HOME/Clones/rust/src/"
+let g:racer_experimental_completer = 1
+
+set tags=./tags;,tags;
