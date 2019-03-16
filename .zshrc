@@ -1,21 +1,6 @@
-source ~/.zplug/init.zsh
-
-zplug "zplug/zplug"
-zplug "x1a0/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/x1a0/prezto ${ZDOTDIR:-$HOME}/.zprezto"
-zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh"
-zplug "felixr/docker-zsh-completion"
-
-# install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-
-
+#
 # prezto config
-
+#
 zstyle ':prezto:*:*' color 'yes'
 
 zstyle ':prezto:load' pmodule \
@@ -37,16 +22,22 @@ zstyle ':prezto:module:prompt' theme 'coolblue'
 
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
-# /prezto config
+#
+# zplugin
+#
+source '/home/x1a0/.dotfiles/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
+zplugin load x1a0/prezto
+zplugin ice pick"scripts/base16-tomorrow-night.sh"
+zplugin light chriskempson/base16-shell
 
-# source plugins and add commands to $PATH
-zplug load --verbose
-
+#
+# misc
+#
 bindkey "^R" history-incremental-pattern-search-backward
-
-# Meta-u to chdir to the parent directory
-bindkey -s '\eu' '^Ucd ..; ls^M'
+bindkey -s '\eu' '^Ucd ..; ls^M' # meta-u to chdir to the parent directory
 
 LOCAL_ZSHRC="$HOME/.dotfiles/local.zshrc"
 [ -s "$LOCAL_ZSHRC" ] && source "$LOCAL_ZSHRC"
