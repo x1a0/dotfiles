@@ -1,5 +1,8 @@
 .zcompdump
 .zhistory
-.zprezto
 .zcompcache/
 local.zshrc
+
+.zplugin/completions/
+.zplugin/plugins/
+.zplugin/snippets/

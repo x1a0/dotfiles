@@ -1,5 +1,4 @@
 ```
-curl -sL zplug.sh/installer | zsh
-git clone git@github.com:zhangxiao/dotfiles.git $HOME/.dotfiles
-$HOME/.dotfiles/setup
+$ git clone --recurse-submodules git@github.com:x1a0/dotfiles.git $HOME/.dotfiles
+$ $HOME/.dotfiles/setup
 ```
