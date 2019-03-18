@@ -5,4 +5,7 @@ xrandr \
 
 xrdb -load $HOME/.Xresources
 
+# for IntelliJ-IDEA
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 dbus-run-session bspwm

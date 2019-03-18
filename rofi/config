@@ -1,0 +1,3 @@
+rofi.font: Sarasa Term SC 16
+rofi.modi: combi
+rofi.combi-modi: window,drun,ssh
