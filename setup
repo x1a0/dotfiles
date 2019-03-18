@@ -8,10 +8,20 @@ DOTFILES=(
   tmux.conf
   vimrc
   zshenv
+  xinitrc
+  Xresources
 )
-
 for f in $DOTFILES; do
   ln -sf "$DIR/$f" "$HOME/.$f"
+done
+
+CONFIG_DIRS=(
+  bspwm
+  sxhkd
+)
+mkdir -p $HOME/.config
+for d in $CONFIG_DIRS; do
+  ln -sf "$DIR/$d" "$HOME/.config/"
 done
 
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
