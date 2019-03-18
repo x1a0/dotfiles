@@ -1,14 +1,21 @@
+let g:mapleader = "\<space>"
+
 call plug#begin('~/.vim/plugged')
 Plug 'bitc/vim-bad-whitespace'
 Plug 'chriskempson/base16-vim'
-Plug 'junegunn/vim-github-dashboard'
-Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
-Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+" {{{
+    let g:racer_experimental_completer = 1
+    let g:racer_insert_paren = 1
+" }}}
 Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" {{{
+    nnoremap <silent> <leader><space> :Files<CR>
+" }}}
 call plug#end()
 
 set tabstop=4
@@ -24,8 +31,11 @@ set ruler
 set background=dark
 set hidden
 
+set completeopt=longest,menuone
+inoremap <tab> <C-x><C-o>
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 inoremap jk <ESC>
-let mapleader=" "
 nmap <Leader>q :q<CR>
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " True gui colors in terminal
@@ -50,17 +60,6 @@ nmap <Leader>gci :Gcommit<CR>
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gb :Gblame<CR>
 
-"" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" find current file
-map <Leader>f :NERDTreeFind<cr>
-
-"" Multi cursors
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
@@ -72,19 +71,7 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
-" Use the_silver_searcher if possible
-if executable("ag")
-  let g:ackprg='ag --nogroup --nocolor --column'
-endif
-
 " Remove trailing whitespace
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 nmap <Leader>j :%!python -m json.tool<CR>
-
-" Racer
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
-let $RUST_SRC_PATH = "$HOME/Clones/rust/src/"
-let g:racer_experimental_completer = 1
-
-set tags=./tags;,tags;
