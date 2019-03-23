@@ -1,22 +1,53 @@
 let g:mapleader = "\<space>"
 
 call plug#begin('~/.vim/plugged')
+
 Plug 'bitc/vim-bad-whitespace'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
+" {{{
+let g:rustfmt_autosave = 1
+" }}}
 Plug 'racer-rust/vim-racer'
 " {{{
-    let g:racer_experimental_completer = 1
-    let g:racer_insert_paren = 1
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+au FileType rust nmap <leader>jd <Plug>(rust-def-split)
+" }}}
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" {{{
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 " }}}
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " {{{
-    nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <leader><space> :Files<CR>
 " }}}
+Plug 'ervandew/supertab'
+" {{{
+let g:SuperTabDefaultCompletionType = "context"
+" }}}
+Plug 'neomake/neomake'
+" {{{
+let g:neomake_open_list = 2
+" }}}
+
 call plug#end()
+
+" {{{ for neomake (has to be after indicating plug#end())
+call neomake#configure#automake('nrwi', 500)
+" }}}
 
 set tabstop=4
 set shiftwidth=4
@@ -32,11 +63,10 @@ set background=dark
 set hidden
 
 set completeopt=longest,menuone
-inoremap <tab> <C-x><C-o>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 inoremap jk <ESC>
-nmap <Leader>q :q<CR>
+nmap <leader>q :q<CR>
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " True gui colors in terminal
 let base16colorspace=256
