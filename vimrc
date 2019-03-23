@@ -5,38 +5,39 @@ call plug#begin('~/.vim/plugged')
 Plug 'bitc/vim-bad-whitespace'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'rust-lang/rust.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " {{{
-let g:rustfmt_autosave = 1
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+nnoremap <F3> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> rd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}
-Plug 'racer-rust/vim-racer'
-" {{{
-let g:racer_experimental_completer = 1
-let g:racer_insert_paren = 1
-au FileType rust nmap <leader>jd <Plug>(rust-def-split)
-" }}}
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" {{{
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', {
+		\ 'do': ':UpdateRemotePlugins',
+		\ }
+else
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
+" {{{
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<TAB>"
 " }}}
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " {{{
 nnoremap <silent> <leader><space> :Files<CR>
-" }}}
-Plug 'ervandew/supertab'
-" {{{
-let g:SuperTabDefaultCompletionType = "context"
 " }}}
 Plug 'neomake/neomake'
 " {{{
