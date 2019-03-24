@@ -63,6 +63,9 @@ set ruler
 set background=dark
 set hidden
 
+set exrc
+set secure
+
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
