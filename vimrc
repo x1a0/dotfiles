@@ -3,15 +3,18 @@ let g:mapleader = "\<space>"
 call plug#begin('~/.vim/plugged')
 
 Plug 'bitc/vim-bad-whitespace'
+
 Plug 'chriskempson/base16-vim'
+
 Plug 'tpope/vim-fugitive'
+
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 " {{{
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 nnoremap <F3> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
@@ -19,6 +22,7 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> rd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}
+"
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', {
 		\ 'do': ':UpdateRemotePlugins',
@@ -28,17 +32,20 @@ else
 	Plug 'roxma/nvim-yarp'
 	Plug 'roxma/vim-hug-neovim-rpc'
 endif
-" {{{
+" {{{ enable Python3 interface: `pip3 install --user pynvim`
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<TAB>"
 " }}}
+"
 Plug 'scrooloose/nerdcommenter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " {{{
 nnoremap <silent> <leader><space> :Files<CR>
 " }}}
+
 Plug 'neomake/neomake'
 " {{{
 let g:neomake_open_list = 2
@@ -50,6 +57,7 @@ call plug#end()
 call neomake#configure#automake('nrwi', 500)
 " }}}
 
+set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
 set backspace=indent,eol,start
