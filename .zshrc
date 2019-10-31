@@ -1,37 +1,36 @@
-#
-# prezto config
-#
-zstyle ':prezto:*:*' color 'yes'
-
-zstyle ':prezto:load' pmodule \
-  'tmux' \
-  'environment' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'fasd' \
-  'prompt' \
-  'git'
-
-zstyle ':prezto:module:editor' key-bindings 'vi'
-
-zstyle ':prezto:module:prompt' theme 'coolblue'
-
-zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-
-#
-# zplugin
-#
 source '/home/x1a0/.dotfiles/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-zplugin load x1a0/prezto
+# Z-Plugins
+zplugin light zplugin/z-a-rust
+
+# Utils
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zdharma/fast-syntax-highlighting
+
+# pyenv
+zplugin ice \
+    atclone"PYENV_ROOT=\"\$PWD\" ./libexec/pyenv init - > zpyenv.zsh" \
+    atinit"export PYENV_ROOT=\"\$PWD\"" \
+    atpull"%atclone" \
+    as"command" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!"
+zplugin light pyenv/pyenv
+
+# Starship prompt https://starship.rs/
+zplugin ice from"gh-r" as"program" atload"!eval $(starship init zsh)" pick"**/starship"
+zplugin light starship/starship
+
+# A command-line fuzzy finder
+zplugin ice from"gh-r" as"program"
+zplugin load junegunn/fzf-bin
+
+# Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
 zplugin light chriskempson/base16-shell
+
+
+#
+# }}}
+#
 
 #
 # misc
