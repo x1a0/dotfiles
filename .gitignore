@@ -6,3 +6,4 @@ local.zshrc
 .zplugin/completions/
 .zplugin/plugins/
 .zplugin/snippets/
+.zplugin/polaris/
