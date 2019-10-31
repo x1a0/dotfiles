@@ -54,7 +54,9 @@
 *color21:      base06
 
 ! urxvt
-urxvt.font: xft:Sarasa Term SC:pixelsize=16
-urxvt.boldfont: xft:Sarasa Term SC:pixelsize=16:weight=bold
+urxvt.depth: 32
+urxvt.background: rgba:0000/0000/0000/de00
+urxvt.font: xft:Sarasa Term SC:pixelsize=18
+urxvt.boldfont: xft:Sarasa Term SC:pixelsize=18:weight=bold
 urxvt.scrollBar: false
 urxvt.internalBorder: 4
