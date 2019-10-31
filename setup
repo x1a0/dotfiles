@@ -4,11 +4,9 @@ DIR=${0:a:h}
 
 DOTFILES=(
   gitconfig
-  ideavimrc
   tmux.conf
   vimrc
   zshenv
-  xinitrc
   Xresources
 )
 for f in $DOTFILES; do
@@ -16,10 +14,7 @@ for f in $DOTFILES; do
 done
 
 CONFIG_DIRS=(
-  bspwm
-  sxhkd
-  rofi
-  nvim
+  sway
 )
 mkdir -p $HOME/.config
 for d in $CONFIG_DIRS; do
@@ -27,7 +22,4 @@ for d in $CONFIG_DIRS; do
 done
 
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
