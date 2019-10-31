@@ -7,16 +7,16 @@ zplugin light zplugin/z-a-rust
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zdharma/fast-syntax-highlighting
 
-# pyenv
-zplugin ice \
+# Pyenv
+zplugin ice as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \
     atclone"PYENV_ROOT=\"\$PWD\" ./libexec/pyenv init - > zpyenv.zsh" \
     atinit"export PYENV_ROOT=\"\$PWD\"" \
-    atpull"%atclone" \
-    as"command" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!"
+    atpull"%atclone"
 zplugin light pyenv/pyenv
 
 # Starship prompt https://starship.rs/
-zplugin ice from"gh-r" as"program" atload"!eval $(starship init zsh)" pick"**/starship"
+zplugin ice from"gh-r" as"program" pick"**/starship" \
+    atload"!eval \$(starship init zsh)"
 zplugin light starship/starship
 
 # A command-line fuzzy finder
@@ -26,7 +26,6 @@ zplugin load junegunn/fzf-bin
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
 zplugin light chriskempson/base16-shell
-
 
 #
 # }}}
