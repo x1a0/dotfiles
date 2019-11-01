@@ -1,3 +1,7 @@
+typeset -g HISTSIZE=100000 SAVEHIST=100000 HISTFILE="${HISTFILE:-${ZDOTDIR:-$HOME}/.zhistory}"
+
+umask 022
+
 source "$HOME/.dotfiles/.zplugin/bin/zplugin.zsh"
 
 # Z-Plugins
