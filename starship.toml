@@ -1,0 +1,8 @@
+[aws]
+symbol = "aws:"
+style = "bold fg:232 bg:208"
+prefix = "a"
+
+[character]
+symbol = "%F{033}❯❯%f%F{074}❯❯%f%F{123}❯%f%F{015}%B❯%b%f"
+vicmd_symbol = "%F{025}❯❯❯❯❯❯%f"
