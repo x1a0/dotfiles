@@ -7,6 +7,12 @@ Plug 'bitc/vim-bad-whitespace'
 Plug 'chriskempson/base16-vim'
 
 Plug 'tpope/vim-fugitive'
+" {{{
+nmap <Leader>gs :Gstatus<CR><C-w>_<C-n>
+nmap <Leader>gci :Gcommit<CR>
+nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gb :Gblame<CR>
+" }}}
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -96,12 +102,6 @@ set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-"" Fugitive
-nmap <Leader>gs :Gstatus<CR><C-w>_<C-n>
-nmap <Leader>gci :Gcommit<CR>
-nmap <Leader>gd :Gdiff<CR>
-nmap <Leader>gb :Gblame<CR>
-
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
@@ -117,3 +117,12 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 nmap <Leader>j :%!python -m json.tool<CR>
+
+" terraform
+autocmd FileType tf setlocal shiftwidth=2 softtabstop=2 expandtab
+
+" vim yaml crosshair
+hi CursorLine   cterm=NONE
+hi CursorColumn cterm=NONE
+autocmd Filetype yaml :set tabstop=2 shiftwidth=2 expandtab cursorline! cursorcolumn!
+autocmd Filetype tf   :set tabstop=2 shiftwidth=2 expandtab cursorline! cursorcolumn!
