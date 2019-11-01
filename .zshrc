@@ -1,4 +1,4 @@
-source '/home/x1a0/.dotfiles/.zplugin/bin/zplugin.zsh'
+source "$HOME/.dotfiles/.zplugin/bin/zplugin.zsh"
 
 # Z-Plugins
 zplugin light zplugin/z-a-rust
