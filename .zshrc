@@ -1,6 +1,6 @@
-typeset -g HISTSIZE=100000 SAVEHIST=100000 HISTFILE="${HISTFILE:-${ZDOTDIR:-$HOME}/.zhistory}"
-
 umask 022
+
+zstyle ':prezto:*:*' color 'yes'
 
 source "$HOME/.dotfiles/.zplugin/bin/zplugin.zsh"
 
@@ -10,6 +10,21 @@ zplugin light zplugin/z-a-rust
 # Utils
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zdharma/fast-syntax-highlighting
+
+zplugin ice svn
+zplugin snippet PZT::modules/environment
+zplugin ice svn
+zplugin snippet PZT::modules/editor
+zplugin ice svn
+zplugin snippet PZT::modules/history
+zplugin ice svn
+zplugin snippet PZT::modules/directory
+zplugin ice svn
+zplugin snippet PZT::modules/spectrum
+zplugin ice svn
+zplugin snippet PZT::modules/utility
+zplugin ice svn
+zplugin snippet PZT::modules/completion
 
 # Pyenv
 zplugin ice as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \

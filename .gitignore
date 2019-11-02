@@ -7,3 +7,5 @@ local.zshrc
 .zplugin/plugins/
 .zplugin/snippets/
 .zplugin/polaris/
+
+*.swp
