@@ -1,11 +1,9 @@
+local.zshrc
+
 .zcompdump
 .zhistory
 .zcompcache/
-local.zshrc
 
-.zplugin/completions/
-.zplugin/plugins/
-.zplugin/snippets/
-.zplugin/polaris/
+.zplugin/
 
 *.swp
