@@ -49,10 +49,8 @@ zplugin light starship/starship
 zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
 
-zplugin ice as"program" pick"kubectl" \
-    atclone'curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl' \
-    atload'!source <(kubectl completion zsh)'
-zplugin light x1a0/null
+zplugin ice as"program" pick"kubectl" atload'!source <(kubectl completion zsh)'
+zplugin snippet https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
