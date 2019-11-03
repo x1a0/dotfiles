@@ -12,12 +12,16 @@ source "${ZDOTDIR:-$HOME}/.zplugin/bin/zplugin.zsh"
 #(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # Z-Plugins
-zplugin light zplugin/z-a-rust
+zplugin load zplugin/z-a-rust
 
 # Utils
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
+zplugin ice wait silent atload'_zsh_autosuggest_start'
+zplugin load zsh-users/zsh-autosuggestions
 
+zplugin ice wait silent
+zplugin load zdharma/fast-syntax-highlighting
+
+# Prezto(PZT) modules
 zplugin ice svn
 zplugin snippet PZT::modules/environment
 zplugin ice svn
@@ -34,28 +38,28 @@ zplugin ice svn
 zplugin snippet PZT::modules/completion
 
 # Pyenv
-zplugin ice as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \
+zplugin ice wait silent as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \
     atclone"PYENV_ROOT=\"\$PWD\" ./libexec/pyenv init - > zpyenv.zsh" \
     atinit"export PYENV_ROOT=\"\$PWD\"" \
     atpull"%atclone"
-zplugin light pyenv/pyenv
+zplugin load pyenv/pyenv
 
 # Starship prompt https://starship.rs/
 zplugin ice from"gh-r" as"program" pick"**/starship" \
     atload"!eval \$(starship init zsh)"
-zplugin light starship/starship
+zplugin load starship/starship
 
 # A command-line fuzzy finder
 zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
 
 KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
-zplugin ice as"program" pick"kubectl" atload"!source <(kubectl completion zsh)"
+zplugin ice wait silent as"program" pick"kubectl" atload"!source <(kubectl completion zsh)"
 zplugin snippet "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
 
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
-zplugin light chriskempson/base16-shell
+zplugin load chriskempson/base16-shell
 
 # Completions
 # https://github.com/zdharma/zplugin#calling-compinit-without-turbo-mode
