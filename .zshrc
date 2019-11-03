@@ -1,5 +1,3 @@
-umask 022
-
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
@@ -8,7 +6,7 @@ if [ ! -d "${ZDOTDIR:-$HOME}/.zplugin" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
 
-source "$HOME/.dotfiles/.zplugin/bin/zplugin.zsh"
+source "${ZDOTDIR:-$HOME}/.zplugin/bin/zplugin.zsh"
 # two lines below are only needed if `compinit` is before sourcing
 #autoload -Uz _zplugin
 #(( ${+_comps} )) && _comps[zplugin]=_zplugin
