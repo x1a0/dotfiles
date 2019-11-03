@@ -1,5 +1,5 @@
-zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ":prezto:*:*" color "yes"
+zstyle ":prezto:module:editor" key-bindings "vi"
 
 # Install zplugin if need
 if [ ! -d "${ZDOTDIR:-$HOME}/.zplugin" ]; then
@@ -49,8 +49,9 @@ zplugin light starship/starship
 zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
 
-zplugin ice as"program" pick"kubectl" atload'!source <(kubectl completion zsh)'
-zplugin snippet https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+zplugin ice as"program" pick"kubectl" atload"!source <(kubectl completion zsh)"
+zplugin snippet "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
 
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
@@ -70,7 +71,7 @@ zplugin cdreplay -q
 # misc
 #
 bindkey "^R" history-incremental-pattern-search-backward
-bindkey -s '\eu' '^Ucd ..; ls^M' # meta-u to chdir to the parent directory
+bindkey -s "\\eu" "^Ucd ..; ls^M" # meta-u to chdir to the parent directory
 
 export PATH="$HOME/.local/bin:$PATH"
 
