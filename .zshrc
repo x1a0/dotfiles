@@ -1,8 +1,17 @@
 umask 022
 
 zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:module:editor' key-bindings 'vi'
+
+# Install zplugin if need
+if [ ! -d "${ZDOTDIR:-$HOME}/.zplugin" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+fi
 
 source "$HOME/.dotfiles/.zplugin/bin/zplugin.zsh"
+# two lines below are only needed if `compinit` is before sourcing
+#autoload -Uz _zplugin
+#(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # Z-Plugins
 zplugin light zplugin/z-a-rust
@@ -42,9 +51,20 @@ zplugin light starship/starship
 zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
 
+zplugin ice as"program" pick"kubectl" \
+    atclone'curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl' \
+    atload'!source <(kubectl completion zsh)'
+zplugin light x1a0/null
+
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
 zplugin light chriskempson/base16-shell
+
+# Completions
+# https://github.com/zdharma/zplugin#calling-compinit-without-turbo-mode
+autoload -Uz compinit
+compinit
+zplugin cdreplay -q
 
 #
 # }}}
@@ -55,6 +75,8 @@ zplugin light chriskempson/base16-shell
 #
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey -s '\eu' '^Ucd ..; ls^M' # meta-u to chdir to the parent directory
+
+export PATH="$HOME/.local/bin:$PATH"
 
 LOCAL_ZSHRC="$HOME/.dotfiles/local.zshrc"
 [ -s "$LOCAL_ZSHRC" ] && source "$LOCAL_ZSHRC"
