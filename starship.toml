@@ -1,6 +1,38 @@
+prompt_order = [
+    "aws",
+    "kubernetes",
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "package",
+    "dotnet",
+    "golang",
+    "java",
+    "nodejs",
+    "python",
+    "ruby",
+    "rust",
+    "nix_shell",
+    "conda",
+    "memory_usage",
+    "env_var",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "time",
+    "character",
+]
+
 [aws]
 style = "bold fg:232 bg:208"
 
 [character]
 symbol = "%F{033}❯❯%f%F{074}❯❯%f%F{123}❯%f%F{015}%B❯%b%f"
 vicmd_symbol = "%F{025}❯❯❯❯❯❯%f"
+
+[kubernetes]
+disabled = false
