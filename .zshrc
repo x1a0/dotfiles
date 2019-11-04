@@ -53,6 +53,7 @@ zplugin load starship/starship
 zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
 
+# Kubernetes
 KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
 zplugin ice id-as"kubectl" as"program" pick"kubectl" atload"!source <(kubectl completion zsh); alias k=kubectl"
 zplugin snippet "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
