@@ -239,4 +239,8 @@ bar {
 #
     exec xrdb $HOME/.Xresources
 
+#
+# ibus
+#
+    exec ibus-daemon --replace
 include /etc/sway/config.d/*
