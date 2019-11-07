@@ -1,3 +1,6 @@
+HARDWARE=$(uname -m)
+OP_SYS=$(uname -s)
+
 zstyle ":prezto:*:*" color "yes"
 zstyle ":prezto:module:editor" key-bindings "vi"
 
@@ -57,6 +60,12 @@ zplugin load junegunn/fzf-bin
 KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
 zplugin ice id-as"kubectl" as"program" pick"kubectl" atload"!source <(kubectl completion zsh); alias k=kubectl"
 zplugin snippet "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+
+# ShellCheck
+SHELLCHECK_VERSION="stable"
+zplugin ice as"program" pick"**/shellcheck" \
+    atclone"tar -xf *.tar.xz" atpull"%atclone"
+zplugin snippet "https://storage.googleapis.com/shellcheck/shellcheck-${SHELLCHECK_VERSION}.${OP_SYS:l}.${HARDWARE}.tar.xz"
 
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
