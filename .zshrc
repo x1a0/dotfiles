@@ -67,6 +67,10 @@ zplugin ice as"program" pick"**/shellcheck" \
     atclone"tar -xf *.tar.xz" atpull"%atclone"
 zplugin snippet "https://storage.googleapis.com/shellcheck/shellcheck-${SHELLCHECK_VERSION}.${OP_SYS:l}.${HARDWARE}.tar.xz"
 
+# Circle CI cli
+zplugin ice from"gh-r" as"program" pick"**/circleci"
+zplugin load CircleCI-Public/circleci-cli
+
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
 zplugin load chriskempson/base16-shell
