@@ -28,7 +28,8 @@ prompt_order = [
 ]
 
 [aws]
-style = "bold fg:232 bg:208"
+symbol = ""
+style = "bold fg:208"
 
 [character]
 symbol = "%F{033}❯❯%f%F{074}❯❯%f%F{123}❯%f%F{015}%B❯%b%f"
