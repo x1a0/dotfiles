@@ -40,6 +40,9 @@ zplugin snippet PZT::modules/utility
 zplugin ice svn
 zplugin snippet PZT::modules/completion
 
+# NVM for NodeJS
+zplugin load "lukechilds/zsh-nvm"
+
 # Pyenv
 zplugin ice wait silent as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \
     atclone"PYENV_ROOT=\"\$PWD\" ./libexec/pyenv init - > zpyenv.zsh" \
