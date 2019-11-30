@@ -1,3 +1,7 @@
+# Prerequisites
+# - tar
+# - unzip
+
 HARDWARE=$(uname -m)
 OP_SYS=$(uname -s)
 
@@ -58,6 +62,12 @@ zplugin load starship/starship
 # A command-line fuzzy finder
 zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
+
+# Terraform
+TERRAFORM_VERSION=0.12.16
+[[ "${HARDWARE}" = "x86_64" ]] && TERRAFORM_ARCH="amd64" || TERRAFORM_ARCH="386"
+zplugin ice as"program" pick"terraform" atclone"unzip *.zip && rm -f *.zip" atpull"%atclone"
+zplugin snippet "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_${OP_SYS:l}_${TERRAFORM_ARCH}.zip"
 
 # Kubernetes
 KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
