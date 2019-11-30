@@ -57,6 +57,8 @@ Plug 'neomake/neomake'
 let g:neomake_open_list = 2
 " }}}
 
+Plug 'hashivim/vim-terraform'
+
 call plug#end()
 
 " {{{ for neomake (has to be after indicating plug#end())
