@@ -59,6 +59,10 @@ let g:neomake_open_list = 2
 
 Plug 'hashivim/vim-terraform'
 
+Plug 'mzlogin/vim-markdown-toc'
+
+Plug 'junegunn/vim-easy-align'
+
 call plug#end()
 
 " {{{ for neomake (has to be after indicating plug#end())
@@ -78,9 +82,14 @@ set smartcase
 set ruler
 set background=dark
 set hidden
+set cc=80
 
 set exrc
 set secure
+
+set directory=/tmp//
+set backupdir=/tmp//
+set undodir=/tmp//
 
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
