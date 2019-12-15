@@ -82,10 +82,6 @@ zplugin snippet "https://storage.googleapis.com/shellcheck/shellcheck-${SHELLCHE
 zplugin ice from"gh-r" as"program" pick"**/circleci"
 zplugin load CircleCI-Public/circleci-cli
 
-# ecs-cli
-zplugin ice id-as"ecs-cli" as"program"
-zplugin snippet "https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-${OP_SYS:l}-amd64-latest"
-
 # Theme
 zplugin ice pick"scripts/base16-tomorrow-night.sh"
 zplugin load chriskempson/base16-shell
