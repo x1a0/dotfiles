@@ -38,3 +38,9 @@ vicmd_symbol = "%F{025}❯❯❯❯❯❯%f"
 [kubernetes]
 symbol = ""
 disabled = false
+
+[rust]
+symbol = "rust-"
+
+[package]
+symbol = ""
