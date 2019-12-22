@@ -63,6 +63,8 @@ Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'junegunn/vim-easy-align'
 
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 " {{{ for neomake (has to be after indicating plug#end())
