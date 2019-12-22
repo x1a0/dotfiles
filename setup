@@ -4,7 +4,6 @@ DIR=${0:a:h}
 
 DOTFILES=(
   gitconfig
-  tmux.conf
   vimrc
   zshenv
   Xresources
@@ -15,6 +14,7 @@ done
 
 CONFIG_DIRS=(
   sway
+  tmux
 )
 mkdir -p $HOME/.config
 for d in $CONFIG_DIRS; do
