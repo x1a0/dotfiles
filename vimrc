@@ -2,6 +2,11 @@ let g:mapleader = "\<space>"
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'itchyny/lightline.vim'
+" {{{
+set laststatus=2
+" }}}
+
 Plug 'bitc/vim-bad-whitespace'
 
 Plug 'chriskempson/base16-vim'
