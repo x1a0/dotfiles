@@ -52,11 +52,6 @@ Plug 'junegunn/fzf.vim'
 nnoremap <silent> <leader><space> :Files<CR>
 " }}}
 
-Plug 'neomake/neomake'
-" {{{
-let g:neomake_open_list = 2
-" }}}
-
 Plug 'hashivim/vim-terraform'
 
 Plug 'mzlogin/vim-markdown-toc'
@@ -66,10 +61,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
-
-" {{{ for neomake (has to be after indicating plug#end())
-call neomake#configure#automake('nrwi', 500)
-" }}}
 
 set encoding=utf-8
 set tabstop=4
