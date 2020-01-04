@@ -18,8 +18,10 @@ source "${ZDOTDIR:-$HOME}/.zplugin/bin/zplugin.zsh"
 #autoload -Uz _zplugin
 #(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-# Z-Plugins
-zplugin load zplugin/z-a-rust
+# Zplugin annexes
+zplugin light-mode for \
+    zplugin/z-a-rust \
+    zplugin/z-a-bin-gem-node
 
 # Utils
 zplugin ice wait silent atload'_zsh_autosuggest_start'
@@ -44,6 +46,11 @@ zplugin snippet PZT::modules/utility
 zplugin ice svn
 zplugin snippet PZT::modules/completion
 
+zplugin as"null" wait lucid from"gh-r" for \
+    mv"exa* -> exa" sbin atload'alias ls="exa -bh --color=auto --git"' ogham/exa \
+    sbin"fzf" junegunn/fzf-bin \
+    sbin"tfswitch" warrensbox/terraform-switcher
+
 # NVM for NodeJS
 zplugin load "lukechilds/zsh-nvm"
 
@@ -58,14 +65,6 @@ zplugin load pyenv/pyenv
 zplugin ice from"gh-r" as"program" pick"**/starship" \
     atload"!eval \$(starship init zsh)"
 zplugin load starship/starship
-
-# A command-line fuzzy finder
-zplugin ice from"gh-r" as"program"
-zplugin load junegunn/fzf-bin
-
-# terraform-switcher
-zplugin ice from"gh-r" as"program"
-zplugin load warrensbox/terraform-switcher
 
 # Kubernetes
 KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
