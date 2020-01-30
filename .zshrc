@@ -55,7 +55,7 @@ zplugin as"null" wait lucid from"gh-r" for \
 zplugin load "lukechilds/zsh-nvm"
 
 # Pyenv
-zplugin ice wait silent as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \
+zplugin ice silent as"program" pick"bin/pyenv" src"zpyenv.zsh" nocompile"!" \
     atclone"PYENV_ROOT=\"\$PWD\" ./libexec/pyenv init - > zpyenv.zsh" \
     atinit"export PYENV_ROOT=\"\$PWD\"" \
     atpull"%atclone"
