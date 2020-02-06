@@ -4,6 +4,6 @@ local.zshrc
 .zhistory
 .zcompcache/
 
-.zplugin/
+.zinit/
 
 *.swp
