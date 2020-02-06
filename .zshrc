@@ -51,6 +51,10 @@ zinit as"null" wait lucid from"gh-r" for \
     sbin"fzf" junegunn/fzf-bin \
     sbin"tfswitch" warrensbox/terraform-switcher
 
+# github/hub
+zinit ice from"gh-r" as"program" mv"hub-*/bin/hub -> hub" sbin"hub"
+zinit load github/hub
+
 # NVM for NodeJS
 zinit load "lukechilds/zsh-nvm"
 
