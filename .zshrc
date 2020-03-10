@@ -85,6 +85,10 @@ zinit snippet "https://storage.googleapis.com/shellcheck/shellcheck-${SHELLCHECK
 zinit ice from"gh-r" as"program" pick"**/circleci"
 zinit load CircleCI-Public/circleci-cli
 
+# Translate shell
+zinit ice as"program" make pick"translate"
+zinit load soimort/translate-shell
+
 # Theme
 zinit ice pick"scripts/base16-tomorrow-night.sh"
 zinit load chriskempson/base16-shell
