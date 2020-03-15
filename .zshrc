@@ -49,7 +49,8 @@ zinit snippet PZT::modules/completion
 zinit as"null" wait lucid from"gh-r" for \
     mv"exa* -> exa" sbin atload'alias ls="exa -bh --color=auto --git"' ogham/exa \
     sbin"fzf" junegunn/fzf-bin \
-    sbin"tfswitch" warrensbox/terraform-switcher
+    sbin"tfswitch" warrensbox/terraform-switcher \
+    sbin"*/rg" mv"*/ripgrep rg" BurntSushi/ripgrep
 
 # github/hub
 zinit ice from"gh-r" as"program" mv"hub-*/bin/hub -> hub" sbin"hub"
